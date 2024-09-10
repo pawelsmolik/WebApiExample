@@ -12,12 +12,6 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File("log-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
-//Log.Information("Log information");
-//Log.Debug("Log Debug");
-//Log.Warning("Log worning");
-//Log.Error("Log Error");
-//Log.Fatal("Log fatal");
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -52,6 +46,7 @@ app.MapGet("/weatherforecast", () =>
             summaries[Random.Shared.Next(summaries.Length)]
         ))
         .ToArray();
+
     return forecast;
 })
 .WithName("GetWeatherForecast")
