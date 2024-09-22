@@ -104,7 +104,10 @@ try
     {
         logger.Error("Log error");
         Log.Warning("Log warning");
-        return "Error Result";
+        return new
+        {
+            data = "Error Result"
+        };
     })
     .WithName("ErrorTest")
     .WithDescription("Test display error in logs")
