@@ -47,9 +47,10 @@
 
             app.MapGet("/version", (IOptions<AppSettings> appSettings, Serilog.ILogger logger, HttpContext ctx) =>
             {
+                var result = $"Wersja {appSettings.Value.Version}";
                 return new
                 {
-                    appSettings.Value.Version
+                    result
                 };
             })
             .WithName("GetVersion")
