@@ -22,6 +22,7 @@ namespace WebApiExample.Extensions
                   .WithTracing(tracing => tracing
                       .AddAspNetCoreInstrumentation()
                       .AddHttpClientInstrumentation()
+                      .AddEntityFrameworkCoreInstrumentation()
                       .AddConsoleExporter()
                       .AddZipkinExporter(opt => opt.Endpoint = new Uri("http://localhost:9411/api/v2/spans")))
                   .WithMetrics(metrics => metrics

@@ -44,6 +44,17 @@
             .WithDescription("Return Car List")
             .WithOpenApi()
             .RequireAuthorization();
+
+            app.MapGet("/version", (IOptions<AppSettings> appSettings, Serilog.ILogger logger, HttpContext ctx) =>
+            {
+                return new
+                {
+                    appSettings.Value.Version
+                };
+            })
+            .WithName("GetVersion")
+            .WithDescription("Return App Version")
+            .WithOpenApi();
         }
     }
 }
